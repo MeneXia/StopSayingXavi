@@ -1,6 +1,7 @@
 package me.menexia.ssx;
 import java.util.logging.Logger;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerChatEvent;
@@ -28,9 +29,10 @@ public class StopSayingXavi extends JavaPlugin {
 			if (love.isCancelled()) return;
 		String message = love.getMessage();
 		Player onlyyoumica = love.getPlayer();
+		Location garcia = onlyyoumica.getLocation();
 			if (message.contains("xavi")) {
 			love.setCancelled(true);
-			onlyyoumica.getLocation().getWorld().strikeLightningEffect(null); // might have to do a onlyyoumica.getLocation() instead of null
+			garcia.getWorld().strikeLightningEffect(garcia);
 			onlyyoumica.damage(19);
 			onlyyoumica.sendMessage(ChatColor.RED + "Message blocked by MeneXia.");
 			onlyyoumica.sendMessage(ChatColor.RED + "Don't make me send down lightning again!");
