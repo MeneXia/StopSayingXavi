@@ -30,12 +30,16 @@ public class StopSayingXavi extends JavaPlugin {
 		String message = love.getMessage();
 		Player onlyyoumica = love.getPlayer();
 		Location garcia = onlyyoumica.getLocation();
-			if (message.contains("xavi")) {
+			if ((message.equalsIgnoreCase("xavi") && message.contains("xavi"))
+					|| (message.equalsIgnoreCase("ablaza") && message.contains("ablaza"))) {
 			love.setCancelled(true);
+				if (onlyyoumica.getHealth() > 5) {
 			garcia.getWorld().strikeLightningEffect(garcia);
-			onlyyoumica.damage(19);
+			onlyyoumica.setHealth(5);
 			onlyyoumica.sendMessage(ChatColor.RED + "Message blocked by MeneXia.");
 			onlyyoumica.sendMessage(ChatColor.RED + "Don't make me send down lightning again!");
+				} else {if (onlyyoumica.getHealth() <= 5) {onlyyoumica.sendMessage(ChatColor.RED + "Message blocked by MeneXia.");
+				onlyyoumica.sendMessage(ChatColor.RED + "Don't make me send down lightning again!");}}
 			}
 		}
 	}
